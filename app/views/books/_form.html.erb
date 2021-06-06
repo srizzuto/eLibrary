@@ -1,10 +1,22 @@
+<% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <%= form_with model: book do |form| %>
   <%= form.label :title, "Title: "%>
   <%= form.text_field :title %>
   <%= form.label :author, "Author: "%>
   <%= form.text_field :author %>
-  <%= form.label :category, "Category: "%>
-  <% array_categories = Category.all.map { |category| category.name } %>
-  <%= options_for_select(array_categories) %>
+  <%= form.label :editor, "Editor: "%>
+  <%= form.text_field :editor %>
+  <%= form.label :category_id, "Category: "%>
+  <%= form.select(:category_id, Category.all.map { |category| ["#{category.name}", category.id] }) %>
   <%= form.submit "Submit" %>
 <% end %>

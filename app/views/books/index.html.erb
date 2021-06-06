@@ -2,7 +2,7 @@
 
 <ul>
 <% array_books = @books.each do |book| %>
-  <li><%= link_to book.title, edit_book_path %></li>
+  <li><%= link_to book.title, book_path(book.id) %></li>
 <% end %>
 </ul>
 
