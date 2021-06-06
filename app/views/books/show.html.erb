@@ -1,0 +1,10 @@
+<h1>Book</h1>
+
+<% @book.title %>
+<% @book.author %>
+<% @book.category %>
+
+<%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Destroy", book_path(@book.id), method: :delete %>
+<%= link_to "Back to New Book", new_book_path %>
+

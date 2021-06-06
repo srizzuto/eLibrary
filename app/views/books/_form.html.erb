@@ -1,0 +1,10 @@
+<%= form_with model: book do |form| %>
+  <%= form.label :title, "Title: "%>
+  <%= form.text_field :title %>
+  <%= form.label :author, "Author: "%>
+  <%= form.text_field :author %>
+  <%= form.label :category, "Category: "%>
+  <% array_categories = Category.all.map { |category| category.name } %>
+  <%= options_for_select(array_categories) %>
+  <%= form.submit "Submit" %>
+<% end %>

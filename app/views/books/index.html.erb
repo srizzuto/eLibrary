@@ -1,0 +1,9 @@
+<h1>Books Index</h1>
+
+<ul>
+<% array_books = @books.each do |book| %>
+  <li><%= link_to book.title, edit_book_path %></li>
+<% end %>
+</ul>
+
+<%= link_to "Create New", new_book_path %>
